@@ -1,0 +1,11 @@
+<%- include("partials/header") %>
+
+<a href="/books/new">➕ Add New Book</a>
+
+<ul>
+  <% books.forEach(book => { %>
+    <li><a href="/books/<%= book._id %>"><%= book.title %></a> by <%= book.author %></li>
+  <% }) %>
+</ul>
+
+<%- include("partials/footer") %>

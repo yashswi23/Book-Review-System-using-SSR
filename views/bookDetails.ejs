@@ -1,0 +1,22 @@
+<%- include("partials/header") %>
+
+<h2><%= book.title %></h2>
+<h4>by <%= book.author %></h4>
+<p><%= book.description %></p>
+
+<hr>
+<h3>Reviews:</h3>
+<ul>
+  <% reviews.forEach(review => { %>
+    <li><strong><%= review.username %>:</strong> <%= review.comment %></li>
+  <% }) %>
+</ul>
+
+<h4>Add a Review:</h4>
+<form action="/books/<%= book._id %>/reviews" method="POST">
+  <input name="username" placeholder="Your name" required><br>
+  <textarea name="comment" placeholder="Write a review..." required></textarea><br>
+  <button type="submit">Submit</button>
+</form>
+
+<%- include("partials/footer") %>
